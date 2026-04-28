@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Motors | Complete Auto Repair & Mechanic Services</title>
+    <meta name="description" content="Ali Motors offers professional auto repair services including tire changes, engine oil services, full car diagnostics, body work, and more.">
+    <meta property="og:title" content="Ali Motors | Complete Auto Repair & Mechanic Services">
+    <meta property="og:description" content="Ali Motors offers professional auto repair services including tire changes, engine oil services, full car diagnostics, body work, and more.">
+    <meta property="og:image" content="https://picsum.photos/seed/alimotors-og/1200/630.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-red': '#b91c1c',
+                        'dark-charcoal': '#1a1a1a',
+                        'light-gray': '#e5e7eb',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.3) 100%);
+        }
+        
+        .red-gradient {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(185, 28, 28, 0.2);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #dc2626;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(185, 28, 28, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .counter {
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-white">
+                        <span class="text-red-600">Ali</span> Motors
+                    </a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#home" class="nav-link text-white hover:text-red-600 transition-colors duration-300">Home</a>
+                        <a href="#about" class="nav-link text-white hover:text-red-600 transition-colors duration-300">About</a>
+                        <a href="#services" class="nav-link text-white hover:text-red-600 transition-colors duration-300">Services</a>
+                        <a href="#gallery" class="nav-link text-white hover:text-red-600 transition-colors duration-300">Gallery</a>
+                        <a href="#contact" class="nav-link text-white hover:text-red-600 transition-colors duration-300">Contact</a>
+                        <a href="#contact" class="red-gradient text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300">Get Quote</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-95">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-white hover:text-red-600 hover:bg-gray-900 rounded-md">Home</a>
+                <a href="#about" class="block px-3 py-2 text-white hover:text-red-600 hover:bg-gray-900 rounded-md">About</a>
+                <a href="#services" class="block px-3 py-2 text-white hover:text-red-600 hover:bg-gray-900 rounded-md">Services</a>
+                <a href="#gallery" class="block px-3 py-2 text-white hover:text-red-600 hover:bg-gray-900 rounded-md">Gallery</a>
+                <a href="#contact" class="block px-3 py-2 text-white hover:text-red-600 hover:bg-gray-900 rounded-md">Contact</a>
+                <a href="#contact" class="block px-3 py-2 red-gradient text-white text-center rounded-md font-medium">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen">
+        <div class="absolute inset-0">
+            <img src="https://picsum.photos/seed/alimotors-hero/1920/1080.jpg" alt="Ali Motors Hero" class="w-full h-full object-cover">
+            <div class="hero-gradient absolute inset-0"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up">
+                    Complete Auto Repair & Mechanic Services
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-300 mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    From engine repairs to body work — Ali Motors handles all your vehicle needs.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <a href="#contact" class="red-gradient text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 text-center">
+                        Book Service
+                    </a>
+                    <a href="tel:+1234567890" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all duration-300 text-center">
+                        Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-dark-charcoal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Our <span class="text-red-600">Services</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Ali Motors offers a comprehensive range of auto repair and maintenance services to keep your vehicle running smoothly.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 overflow-hidden">
+                                               <img src="https://images.unsplash.com/photo-1619405399517-d7fce0f13302?w=600&h=400&fit=crop&q=80" alt="Mechanic changing car tire in workshop" class="w-full h-full object-cover service-card-img">
+
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Tire Change</h3>
+                        <p class="text-gray-400 mb-4">Professional tire installation, balancing, and rotation services for all vehicle types.</p>
+                        <a href="#contact" class="text-red-600 font-medium hover:text-red-500 transition-colors duration-300">Learn More →</a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 overflow-hidden">
+  <img src="https://hips.hearstapps.com/hmg-prod/images/oil5981-667dbd6cb2cec.jpg?crop=0.8888888888888888xw:1xh;center,top&resize=1200:*" alt="Engine oil change service with fresh motor oil" class="w-full h-full object-cover service-card-img">
+
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Oil Change</h3>
+                        <p class="text-gray-400 mb-4">Regular oil changes with high-quality lubricants to extend your engine's life.</p>
+                        <a href="#contact" class="text-red-600 font-medium hover:text-red-500 transition-colors duration-300">Learn More →</a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 overflow-hidden">
+ <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=400&fit=crop&q=80" alt="Car engine diagnostic computer scan tool" class="w-full h-full object-cover service-card-img">
+
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Engine Diagnostics</h3>
+                        <p class="text-gray-400 mb-4">Advanced diagnostic technology to identify and resolve engine issues quickly.</p>
+                        <a href="#contact" class="text-red-600 font-medium hover:text-red-500 transition-colors duration-300">Learn More →</a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&h=400&fit=crop&q=80" alt="Engine repair mechanic working on car" class="w-full h-full object-cover">                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Brake Repair</h3>
+                        <p class="text-gray-400 mb-4">Complete brake system inspection, repair, and replacement for your safety.</p>
+                        <a href="#contact" class="text-red-600 font-medium hover:text-red-500 transition-colors duration-300">Learn More →</a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=600&h=400&fit=crop&q=80" alt="Car suspension system repair and shock absorbers" class="w-full h-full object-cover service-card-img">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Suspension Repair</h3>
+                        <p class="text-gray-400 mb-4">Expert suspension services to ensure a smooth and comfortable ride.</p>
+                        <a href="#contact" class="text-red-600 font-medium hover:text-red-500 transition-colors duration-300">Learn More →</a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=400&fit=crop&q=80" alt="Car engine open hood repair service" class="w-full h-full object-cover service-card-img">
+
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Body Work</h3>
+                        <p class="text-gray-400 mb-4">Professional body repair, dent removal, and painting services.</p>
+                        <a href="#contact" class="text-red-600 font-medium hover:text-red-500 transition-colors duration-300">Learn More →</a>
+                    </div>
+                </div>
+                
+                <!-- Service Card 7 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 overflow-hidden">
+                         <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=400&fit=crop&q=80" alt="Car engine open hood repair service" class="w-full h-full object-cover service-card-img">
+
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Engine Repair</h3>
+                        <p class="text-gray-400 mb-4">Comprehensive engine repair services to get your vehicle running like new.</p>
+                        <a href="#contact" class="text-red-600 font-medium hover:text-red-500 transition-colors duration-300">Learn More →</a>
+                    </div>
+                </div>
+                
+               
+                
+                <!-- Service Card 9 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden card-hover transition-all duration-300">
+                    <div class="h-48 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=600&h=400&fit=crop&q=80" alt="Professional car maintenance and inspection service" class="w-full h-full object-cover">                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Car Maintenance</h3>
+                        <p class="text-gray-400 mb-4">Regular maintenance services to keep your vehicle in optimal condition.</p>
+                        <a href="#contact" class="text-red-600 font-medium hover:text-red-500 transition-colors duration-300">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Why Choose <span class="text-red-600">Ali Motors</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">We're committed to providing the highest quality auto repair services with a focus on customer satisfaction.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-dark-charcoal p-8 rounded-lg text-center">
+                    <div class="w-16 h-16 red-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Certified Mechanics</h3>
+                    <p class="text-gray-400">Our team consists of highly trained and certified automotive technicians.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-dark-charcoal p-8 rounded-lg text-center">
+                    <div class="w-16 h-16 red-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Affordable Pricing</h3>
+                    <p class="text-gray-400">Quality auto repair services at competitive and transparent prices.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-dark-charcoal p-8 rounded-lg text-center">
+                    <div class="w-16 h-16 red-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Fast Turnaround</h3>
+                    <p class="text-gray-400">We value your time and strive to complete repairs efficiently.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-dark-charcoal p-8 rounded-lg text-center">
+                    <div class="w-16 h-16 red-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Quality Parts</h3>
+                    <p class="text-gray-400">We use only high-quality parts and components for all repairs.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-dark-charcoal p-8 rounded-lg text-center">
+                    <div class="w-16 h-16 red-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Trusted Service</h3>
+                    <p class="text-gray-400">We've built a reputation for honesty and reliability with our customers.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-dark-charcoal p-8 rounded-lg text-center">
+                    <div class="w-16 h-16 red-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Experienced Technicians</h3>
+                    <p class="text-gray-400">Our team has years of experience working with all vehicle makes and models.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-dark-charcoal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=800&h=600&fit=crop&q=80" alt="Ali Motors auto repair workshop with professional mechanics" class="w-full h-auto rounded-lg shadow-lg">
+                    <div class="absolute -bottom-6 -right-6 bg-red-600 text-white p-6 rounded-lg shadow-lg">
+                        <div class="text-4xl font-bold counter">15+</div>
+                        <div class="text-sm">Years Experience</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6">About <span class="text-red-600">Ali Motors</span></h2>
+                    <p class="text-gray-300 mb-6">
+                        Ali Motors is a premier auto repair and mechanic shop with over 15 years of experience in providing top-quality automotive services. We have built a reputation for excellence, reliability, and customer satisfaction.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        Our team of certified technicians is dedicated to ensuring your vehicle receives the best care possible. We use the latest diagnostic equipment and high-quality parts to deliver exceptional results every time.
+                    </p>
+                    <p class="text-gray-300 mb-8">
+                        Whether you need routine maintenance or complex repairs, Ali Motors is your trusted partner for all your automotive needs. We treat every vehicle as if it were our own, ensuring meticulous attention to detail in every service we provide.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Expert Technicians</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Quality Service</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Customer Trust</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>Professional Work</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="red-gradient text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 inline-block">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Our <span class="text-red-600">Process</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">We follow a systematic approach to ensure your vehicle receives the best care possible.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center relative">
+                    <div class="w-20 h-20 red-gradient rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-semibold mb-3">Book Appointment</h3>
+                    <p class="text-gray-400">Schedule your service appointment online or by phone.</p>
+                    
+                    <div class="hidden md:block absolute top-10 left-1/2 w-full h-0.5 bg-gray-700 -z-10"></div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center relative">
+                    <div class="w-20 h-20 red-gradient rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-semibold mb-3">Vehicle Inspection</h3>
+                    <p class="text-gray-400">Our technicians thoroughly inspect your vehicle to identify issues.</p>
+                    
+                    <div class="hidden md:block absolute top-10 left-1/2 w-full h-0.5 bg-gray-700 -z-10"></div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center relative">
+                    <div class="w-20 h-20 red-gradient rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-semibold mb-3">Repair & Service</h3>
+                    <p class="text-gray-400">We perform the necessary repairs using quality parts and expertise.</p>
+                    
+                    <div class="hidden md:block absolute top-10 left-1/2 w-full h-0.5 bg-gray-700 -z-10"></div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 red-gradient rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold">4</div>
+                    <h3 class="text-xl font-semibold mb-3">Delivery</h3>
+                    <p class="text-gray-400">Your vehicle is returned to you in optimal condition, ready for the road.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-dark-charcoal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Customer <span class="text-red-600">Testimonials</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Hear what our satisfied customers have to say about their experience with Ali Motors.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">"Ali Motors provided excellent service for my car. The team was professional, transparent about the repairs needed, and completed the work on time. I highly recommend their services."</p>
+                    <div class="flex items-center">
+                        <img src="https://picsum.photos/seed/customer1/100/100.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">John Smith</h4>
+                            <p class="text-gray-400 text-sm">Toyota Camry Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">"I've been taking my car to Ali Motors for years. Their attention to detail and commitment to customer satisfaction is unmatched. They always explain the issues clearly and provide fair pricing."</p>
+                    <div class="flex items-center">
+                        <img src="https://picsum.photos/seed/customer2/100/100.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <p class="text-gray-400 text-sm">Honda Accord Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-lg testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">"After being quoted exorbitant prices elsewhere, I found Ali Motors. They fixed my transmission issue at a fraction of the cost and did an excellent job. They've earned a customer for life."</p>
+                    <div class="flex items-center">
+                        <img src="https://picsum.photos/seed/customer3/100/100.jpg" alt="Customer" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Michael Brown</h4>
+                            <p class="text-gray-400 text-sm">Ford F-150 Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="absolute top-4 right-4 text-white text-4xl">&times;</button>
+        <img id="lightbox-img" src="" alt="Gallery Image">
+    </div>
+
+    <!-- CTA Banner -->
+    <section class="py-20 red-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">Need Your Car Fixed? Contact Ali Motors Today.</h2>
+            <p class="text-xl text-white text-opacity-90 mb-8 max-w-2xl mx-auto">Our team of experts is ready to handle all your auto repair needs. Get in touch with us today for a free quote.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+1234567890" class="bg-white text-red-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300">
+                    Call Now
+                </a>
+                <a href="#contact" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-red-600 transition-all duration-300">
+                    Get Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-dark-charcoal">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Frequently Asked <span class="text-red-600">Questions</span></h2>
+                <p class="text-gray-400">Find answers to common questions about our services.</p>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center" onclick="toggleFAQ(this)">
+                        <span>What types of vehicles do you service?</span>
+                        <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="px-6 pb-4 hidden">
+                        <p class="text-gray-400">At Ali Motors, we service all types of vehicles including cars, trucks, SUVs, and vans. Our technicians are experienced with both domestic and foreign vehicles of all makes and models.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center" onclick="toggleFAQ(this)">
+                        <span>Do you offer warranty on your repairs?</span>
+                        <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="px-6 pb-4 hidden">
+                        <p class="text-gray-400">Yes, we offer a warranty on most of our repair services. The warranty period varies depending on the type of repair and parts used. We stand behind our work and want to ensure your complete satisfaction.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center" onclick="toggleFAQ(this)">
+                        <span>How do I schedule an appointment?</span>
+                        <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="px-6 pb-4 hidden">
+                        <p class="text-gray-400">You can schedule an appointment by calling us directly, filling out the contact form on our website, or visiting our shop in person. We recommend scheduling in advance for non-emergency services to ensure we can accommodate your preferred time.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center" onclick="toggleFAQ(this)">
+                        <span>Do you provide towing services?</span>
+                        <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="px-6 pb-4 hidden">
+                        <p class="text-gray-400">Yes, we offer towing services for vehicles that cannot be driven to our shop. Contact us for more information about our towing services and rates. We can arrange to have your vehicle picked up and brought to our facility for repair.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="bg-black bg-opacity-50 rounded-lg overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left font-semibold flex justify-between items-center" onclick="toggleFAQ(this)">
+                        <span>Can I wait at your shop while my car is being repaired?</span>
+                        <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="px-6 pb-4 hidden">
+                        <p class="text-gray-400">For quick services, you're welcome to wait in our comfortable waiting area. We have complimentary Wi-Fi, refreshments, and a TV. For longer repairs, we can arrange alternative transportation or keep you updated on your vehicle's progress.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Contact <span class="text-red-600">Us</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Have a question or need to schedule a service? We're here to help.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-dark-charcoal border border-gray-700 rounded-lg text-white focus:outline-none focus:border-red-600 transition-colors duration-300">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-dark-charcoal border border-gray-700 rounded-lg text-white focus:outline-none focus:border-red-600 transition-colors duration-300">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-dark-charcoal border border-gray-700 rounded-lg text-white focus:outline-none focus:border-red-600 transition-colors duration-300">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-medium mb-2">Service Needed</label>
+                            <select id="service" name="service" required class="w-full px-4 py-3 bg-dark-charcoal border border-gray-700 rounded-lg text-white focus:outline-none focus:border-red-600 transition-colors duration-300">
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="tire-change">Tire Change</option>
+                                <option value="oil-change">Oil Change</option>
+                                <option value="engine-diagnostics">Engine Diagnostics</option>
+                                <option value="brake-repair">Brake Repair</option>
+                                <option value="suspension-repair">Suspension Repair</option>
+                                <option value="body-work">Body Work</option>
+                                <option value="engine-repair">Engine Repair</option>
+                                <option value="electrical-services">Electrical Services</option>
+                                <option value="car-maintenance">Car Maintenance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-dark-charcoal border border-gray-700 rounded-lg text-white focus:outline-none focus:border-red-600 transition-colors duration-300 resize-none"></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="red-gradient text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 w-full sm:w-auto">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div id="form-success" class="hidden mt-6 p-4 bg-green-900 bg-opacity-50 border border-green-700 rounded-lg">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <p class="text-green-400">Your message has been sent successfully. We'll get back to you soon!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-dark-charcoal p-8 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 red-gradient rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Address</h4>
+                                    <p class="text-gray-400">123 Auto Repair Street, Mechanic District, City, Country</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 red-gradient rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Phone</h4>
+                                    <p class="text-gray-400">+1 (234) 567-890</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 red-gradient rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Email</h4>
+                                    <p class="text-gray-400">info@alimotors.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 red-gradient rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Working Hours</h4>
+                                    <p class="text-gray-400">Mon-Fri: 8:00 AM - 6:00 PM</p>
+                                    <p class="text-gray-400">Sat: 9:00 AM - 4:00 PM</p>
+                                    <p class="text-gray-400">Sun: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-lg overflow-hidden h-64">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.4194!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064e7c5c5c5%3A0x5c5c5c5c5c5c5c5c!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-charcoal pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Footer Column 1 -->
+                <div>
+                    <a href="#" class="text-2xl font-bold text-white">
+                        <span class="text-red-600">Ali</span> Motors
+                    </a>
+                    <p class="text-gray-400 mt-4 mb-6">Your trusted partner for all auto repair and maintenance needs. Quality service you can rely on.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-300">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-300">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-300">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-300">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Footer Column 2 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-red-600 transition-colors duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-red-600 transition-colors duration-300">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-red-600 transition-colors duration-300">Services</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-red-600 transition-colors duration-300">Gallery</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-red-600 transition-colors duration-300">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Column 3 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Our Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-red-600 transition-colors duration-300">Tire Change</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-red-600 transition-colors duration-300">Oil Change</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-red-600 transition-colors duration-300">Engine Diagnostics</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-red-600 transition-colors duration-300">Brake Repair</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-red-600 transition-colors duration-300">Body Work</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Column 4 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-red-600 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="text-gray-400">123 Auto Repair Street, Mechanic District, City, Country</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span class="text-gray-400">+1 (234) 567-890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="text-gray-400">info@alimotors.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-gray-400 text-center">&copy; 2023 Ali Motors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-float">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+        </svg>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black', 'bg-opacity-95', 'shadow-lg');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-black', 'bg-opacity-95', 'shadow-lg');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // Lightbox functions
+        function openLightbox(element) {
+            const imgSrc = element.querySelector('img').src;
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // FAQ toggle
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('svg');
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            setTimeout(() => {
+                this.classList.add('hidden');
+                document.getElementById('form-success').classList.remove('hidden');
+                
+                // Reset form after 5 seconds
+                setTimeout(() => {
+                    this.reset();
+                    this.classList.remove('hidden');
+                    document.getElementById('form-success').classList.add('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }, 5000);
+            }, 1500);
+        });
+
+        // Animated counter
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.ceil(start) + '+';
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + '+';
+                }
+            }
+            
+            updateCounter();
+        }
+
+        // Intersection Observer for counter animation
+        const counterElement = document.querySelector('.counter');
+        let counterAnimated = false;
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counterAnimated) {
+                    animateCounter(counterElement, 15);
+                    counterAnimated = true;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counterObserver.observe(counterElement);
+    </script>
+</body>
+</html>
